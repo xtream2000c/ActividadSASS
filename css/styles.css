@@ -3,8 +3,8 @@
 }
 .navegado .navegador {
   background: DarkGray;
-  -webkit-box-shadow: 0 0 1px rgba(169, 169, 169, 0.25);
-          box-shadow: 0 0 1px rgba(169, 169, 169, 0.25);
+  -webkit-box-shadow: 0 0 5px rgba(169, 169, 169, 0.25);
+          box-shadow: 0 0 5px rgba(169, 169, 169, 0.25);
   color: #fff;
   background-color: black;
   margin: 0;
@@ -26,8 +26,8 @@
   margin: 0;
   padding: 10px;
   background: black;
-  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
-          box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
   color: #fff;
 }
 .futer div {
@@ -42,8 +42,26 @@
   color: green;
 }
 
+.contenedor {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 .contenedor div {
+  font-size: 1.3em;
+  font-weight: bold;
+  background-color: #111;
+  color: #eee;
   display: inline-block;
+}
+.contenedor div h1 {
+  font-size: 1.5em;
+}
+.contenedor div h2 {
+  font-size: 1.2em;
+}
+.contenedor div h3 {
+  font-size: 1em;
 }
 
 .col-2 {
@@ -110,13 +128,56 @@
   width: 16.6666666667%;
 }
 
+.contenedor-200px {
+  height: 200px;
+  width: 200px;
+  display: block;
+  background: grey;
+  -webkit-box-shadow: 0 0 5px rgba(128, 128, 128, 0.25);
+          box-shadow: 0 0 5px rgba(128, 128, 128, 0.25);
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.contenedor-300px {
+  height: 300px;
+  width: 300px;
+  display: block;
+  background: grey;
+  -webkit-box-shadow: 0 0 5px rgba(128, 128, 128, 0.25);
+          box-shadow: 0 0 5px rgba(128, 128, 128, 0.25);
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.contenedor-400px {
+  height: 400px;
+  width: 400px;
+  display: block;
+  background: grey;
+  -webkit-box-shadow: 0 0 5px rgba(128, 128, 128, 0.25);
+          box-shadow: 0 0 5px rgba(128, 128, 128, 0.25);
+  color: #fff;
+  margin-bottom: 30px;
+}
+
 .mitad {
   border: 3px solid white;
   border-radius: 2rem;
   background: grey;
-  -webkit-box-shadow: 0 0 1px rgba(128, 128, 128, 0.25);
-          box-shadow: 0 0 1px rgba(128, 128, 128, 0.25);
+  -webkit-box-shadow: 0 0 5px rgba(128, 128, 128, 0.25);
+          box-shadow: 0 0 5px rgba(128, 128, 128, 0.25);
   color: #fff;
-  color: blanco;
+  color: white;
   width: 600px;
+}
+
+.contenedor1 {
+  display: inline-block;
+  width: 200px;
+  height: 100px;
+  background-color: grey;
+  border-radius: 5%;
+  text-align: center;
+  margin: 5px;
 }

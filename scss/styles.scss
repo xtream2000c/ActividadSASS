@@ -10,40 +10,72 @@ $gris : grey;
 $blanco : white;
 $p : 2;
 $anchoFunciones : 100%;
+$tamanios: 200px, 300px, 400px;
 
 
 //Mixins
 
-@mixin theme($theme: DarkGray) {
+@mixin theme($theme: DarkGray) { //Mixin 1
     background: $theme;
-    box-shadow: 0 0 1px rgba($theme, .25);
+    box-shadow: 0 0 5px rgba($theme, .25);
     color: #fff;
-  }
+}
 
-@mixin border-radius($radius){
+@mixin border-radius($radius){ //Mixin 2
    -webkit-border-radius : $radius;
        -moz-border-radius: $radius;
         -ms-border-radius: $radius;
             border-radius: $radius;
 }
   
+@mixin color-invertido { //Mixin 3
+    background-color: #111;
+    color: #eee;
+}
+
+@mixin tamaño-letra { //Mixin 4
+    font-size: 1.3em;
+    font-weight: bold ;
+}
+
+@mixin encabezados { //Mixin 5
+    h1 {
+      font-size: 1.5em;
+    }
+    h2 {
+      font-size: 1.2em;
+    }
+    h3 {
+      font-size: 1em;
+    }
+}
+
+@mixin container($ancho, $alto, $color) { //Mixin 6
+    width: $ancho;
+    height: $alto;
+    background-color: $color;
+    border-radius: 5%;
+    text-align: center;
+    margin: 5px;
+} 
 
 //Anidados
+
 .navegado{
 
     margin-bottom: $margen;
 
-    .navegador{
+    .navegador{ //Anidado 1
         @include theme;
         background-color: black;
         margin: 0;
         padding: 0;
         list-style: none;
-        li{
+        li{ // Anidado 2
             background-color: $gris;
             display: inline-block;
             
-            a{
+            a{ //Anidado 3
                 font-size: 0.7rem;
                 color: $blanco;
                 padding: $padding;
@@ -53,63 +85,109 @@ $anchoFunciones : 100%;
 }
 
 .futer{
+
     @include border-radius(1rem);
     margin: 0;
     padding: $padding;
     @include theme($theme: black);
-    div{
+
+    div{ //Anidado 4
         margin: 0;
         background-color: $gris;
         display: inline-block;
 
-        a{
+        a{ //Anidado 5
             
-         &:hover{
-             color: red;
-         }   
-         &:focus{
-             color: green;
-         }
+            &:hover{ //Anidado 6
+                color: red;
+            }   
+            &:focus{ //Anidado 7
+                color: green;
+            }
         }
-      }
+    }
 }
 
 .contenedor{
-    div{
+
+    display: flex;
+
+    div{ //Anidado 8
+
+        @include encabezados();
+        @include tamaño-letra();
+        @include color-invertido();
         display: inline-block;
+
     }
+
 }
 
-//Funciones
+//Funciones Bucles y Operaciones
 
-@function partir($tam,$num_partes){
-    @return ($tam/$num_partes);
+@function partir($tam,$num_partes){ //Funcion 1
+    @return division($tam,$num_partes);
 }
 
+@function exponente($base, $exponent) { //Funcion 2
 
+    $result: 1px;
 
+    @for $_ from 1 through $exponent { //bucle 1
 
-//Bucles
-@for $p from 2 through 12{
+      $result: Multiplicacion($result, $base); 
+
+    }
+
+    @return $result;
+}
+
+@function Multiplicacion($num1, $num2){ //Funcion 3
+    $result : $num1*$num2; //Operacion 1
+    @return $result;
+}
+
+@function division($num1,$num2){ //Funcion 4
+    $result : $num1/$num2; //Operacion 2
+    @return $result;
+}
+
+@for $p from 2 through 12{ //bucle 2
     .col-#{$p}{
-        width: $anchoFunciones/$p;
+        width: $anchoFunciones/$p; //Operacion 3
     }
 }
 
-
-
-@while $p <=6{
+@while $p <=6{ //bucle 3
     .col-grandes-#{$p}{
-        width: $anchoFunciones/$p;
+        width: $anchoFunciones/$p;//Operacion 4
     }
-    $p:$p+1;
+    $p:$p+1; //Operacion 5
+}
+
+@each $tamanio in $tamanios { //bucle 4
+   
+    .contenedor-#{$tamanio} {
+        height: $tamanio;
+        width: $tamanio;
+        display: block;
+        @include theme($theme: grey);
+        margin-bottom: $margen;
+    }
+
 }
 
 .mitad{
     border: 3px solid $blanco;
-    @include border-radius(2rem);
+    @include border-radius(2rem); 
     @include theme($theme: grey);
-    color: blanco;
+    color: $blanco;
     width: partir($ancho,2);
 }
 
+.contenedor1{
+
+    display: inline-block;
+    @include container(200px, exponente(10,2), $gris);
+
+}
