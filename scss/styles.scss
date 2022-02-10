@@ -1,0 +1,115 @@
+//Definidas variables
+
+$ancho : 1200px;
+$alto : 80px;
+$radio : 1.5rem;
+$margen : 30px;
+$padding : 10px;
+$rojo : red;
+$gris : grey;
+$blanco : white;
+$p : 2;
+$anchoFunciones : 100%;
+
+
+//Mixins
+
+@mixin theme($theme: DarkGray) {
+    background: $theme;
+    box-shadow: 0 0 1px rgba($theme, .25);
+    color: #fff;
+  }
+
+@mixin border-radius($radius){
+   -webkit-border-radius : $radius;
+       -moz-border-radius: $radius;
+        -ms-border-radius: $radius;
+            border-radius: $radius;
+}
+  
+
+//Anidados
+.navegado{
+
+    margin-bottom: $margen;
+
+    .navegador{
+        @include theme;
+        background-color: black;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        li{
+            background-color: $gris;
+            display: inline-block;
+            
+            a{
+                font-size: 0.7rem;
+                color: $blanco;
+                padding: $padding;
+            }
+        }
+    }
+}
+
+.futer{
+    @include border-radius(1rem);
+    margin: 0;
+    padding: $padding;
+    @include theme($theme: black);
+    div{
+        margin: 0;
+        background-color: $gris;
+        display: inline-block;
+
+        a{
+            
+         &:hover{
+             color: red;
+         }   
+         &:focus{
+             color: green;
+         }
+        }
+      }
+}
+
+.contenedor{
+    div{
+        display: inline-block;
+    }
+}
+
+//Funciones
+
+@function partir($tam,$num_partes){
+    @return ($tam/$num_partes);
+}
+
+
+
+
+//Bucles
+@for $p from 2 through 12{
+    .col-#{$p}{
+        width: $anchoFunciones/$p;
+    }
+}
+
+
+
+@while $p <=6{
+    .col-grandes-#{$p}{
+        width: $anchoFunciones/$p;
+    }
+    $p:$p+1;
+}
+
+.mitad{
+    border: 3px solid $blanco;
+    @include border-radius(2rem);
+    @include theme($theme: grey);
+    color: blanco;
+    width: partir($ancho,2);
+}
+

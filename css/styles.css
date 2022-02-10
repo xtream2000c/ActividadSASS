@@ -1,0 +1,122 @@
+.navegado {
+  margin-bottom: 30px;
+}
+.navegado .navegador {
+  background: DarkGray;
+  -webkit-box-shadow: 0 0 1px rgba(169, 169, 169, 0.25);
+          box-shadow: 0 0 1px rgba(169, 169, 169, 0.25);
+  color: #fff;
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.navegado .navegador li {
+  background-color: grey;
+  display: inline-block;
+}
+.navegado .navegador li a {
+  font-size: 0.7rem;
+  color: white;
+  padding: 10px;
+}
+
+.futer {
+  border-radius: 1rem;
+  margin: 0;
+  padding: 10px;
+  background: black;
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+  color: #fff;
+}
+.futer div {
+  margin: 0;
+  background-color: grey;
+  display: inline-block;
+}
+.futer div a:hover {
+  color: red;
+}
+.futer div a:focus {
+  color: green;
+}
+
+.contenedor div {
+  display: inline-block;
+}
+
+.col-2 {
+  width: 50%;
+}
+
+.col-3 {
+  width: 33.3333333333%;
+}
+
+.col-4 {
+  width: 25%;
+}
+
+.col-5 {
+  width: 20%;
+}
+
+.col-6 {
+  width: 16.6666666667%;
+}
+
+.col-7 {
+  width: 14.2857142857%;
+}
+
+.col-8 {
+  width: 12.5%;
+}
+
+.col-9 {
+  width: 11.1111111111%;
+}
+
+.col-10 {
+  width: 10%;
+}
+
+.col-11 {
+  width: 9.0909090909%;
+}
+
+.col-12 {
+  width: 8.3333333333%;
+}
+
+.col-grandes-2 {
+  width: 50%;
+}
+
+.col-grandes-3 {
+  width: 33.3333333333%;
+}
+
+.col-grandes-4 {
+  width: 25%;
+}
+
+.col-grandes-5 {
+  width: 20%;
+}
+
+.col-grandes-6 {
+  width: 16.6666666667%;
+}
+
+.mitad {
+  border: 3px solid white;
+  border-radius: 2rem;
+  background: grey;
+  -webkit-box-shadow: 0 0 1px rgba(128, 128, 128, 0.25);
+          box-shadow: 0 0 1px rgba(128, 128, 128, 0.25);
+  color: #fff;
+  color: blanco;
+  width: 600px;
+}
